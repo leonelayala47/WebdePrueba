@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="es">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Base Premium Web</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background:
+      linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.95)),
+      url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1400&auto=format&fit=crop') center/cover;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 35px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(56,189,248,0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 30px;
+      transition: 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #38bdf8;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #38bdf8;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .contact {
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 30px;
+      padding: 60px 20px;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .whatsapp {
+      background: #22c55e;
+      color: white;
+      padding: 15px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 2.6rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+</style></head>
+  <body><header>
+	  <div class="navbar">
+		<div class="logo">PremiumWeb</div><div class="nav-links">
+		  <a href="#services">Servicios</a>
+		  <a href="#gallery">Galería</a>
+		  <a href="#contact">Contacto</a>
+		</div>
+
+	  </div>
+	</header><section class="hero">
+	  <div class="hero-content">
+		<h1>Diseños Web <span>Modernos</span> Que Impactan</h1><p>
+		  Base premium reutilizable para crear páginas web profesionales,
+		  rápidas y visualmente llamativas para cualquier negocio.
+		</p>
+
+		<div class="buttons">
+		  <a href="#contact" class="btn btn-primary">Solicitar Sitio</a>
+		  <a href="#services" class="btn btn-secondary">Ver Servicios</a>
+		</div>
+
+	  </div>
+	</section><section class="section" id="services">
+	  <div class="section-title">
+		<h2>Servicios Premium</h2>
+		<p>Diseños adaptables para distintos comercios</p>
+	  </div>  <div class="cards">
+		<div class="card">
+		  <h3>Barberías</h3>
+		  <p>
+			Diseños oscuros modernos con reservas por WhatsApp,
+			galería y ubicación integrada.
+		  </p>
+		</div><div class="card">
+		  <h3>Farmacias</h3>
+		  <p>
+			Catálogos organizados, promociones,
+			contacto rápido y diseño profesional.
+		  </p>
+		</div>
+
+		<div class="card">
+		  <h3>Ferreterías</h3>
+		  <p>
+			Catálogo de productos, mapas,
+			horarios y consultas instantáneas.
+		  </p>
+		</div>
+
+	  </div>
+	</section><section class="section" id="gallery">
+	  <div class="section-title">
+		<h2>Galería Visual</h2>
+		<p>Imágenes alojadas fácilmente en GitHub</p>
+	  </div>  <div class="gallery">
+		<img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt=""><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1200&auto=format&fit=crop" alt="">
+
+		<img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?q=80&w=1200&auto=format&fit=crop" alt="">
+
+	  </div>
+	</section><section class="section">
+	  <div class="contact" id="contact">
+		<h2>¿Querés Una Página Profesional?</h2><p>
+		  Diseños modernos adaptados para cualquier tipo de negocio.
+		</p>
+
+		<a class="whatsapp" href="https://wa.me/5491112345678" target="_blank">
+		  Contactar por WhatsApp
+		</a>
+
+	  </div>
+	</section><footer>
+	  © 2026 PremiumWeb - Diseño moderno adaptable para cualquier negocio.
+</footer><script>
+  console.log('Base premium cargada correctamente');
+</script></body>
+</html>
